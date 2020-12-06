@@ -1,1 +1,1 @@
-# Vrnz2.Challenge.Management.Clients
+# Vrnz2.Challenge.Management.Customers
