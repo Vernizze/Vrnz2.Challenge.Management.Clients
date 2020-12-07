@@ -7,5 +7,6 @@ namespace Vrnz2.Challenge.Management.Customers.Shared.Settings
     {
         public ConnectionStringsSettings ConnectionStrings { get; set; }
         public AwsSettings AwsSettings { get; set; }
+        public QueuesSettings QueuesSettings { get; set; }
     }
 }

@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="9.3.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.3.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
@@ -21,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Vrnz2.Challenge.ServiceContracts\Vrnz2.Challenge.ServiceContracts\Vrnz2.Challenge.ServiceContracts.csproj" />
     <ProjectReference Include="..\Vrnz2.Challenge.Management.Customers.Infra\Vrnz2.Challenge.Management.Customers.Infra.csproj" />
     <ProjectReference Include="..\Vrnz2.Challenge.Management.Customers\Vrnz2.Challenge.Management.Customers.csproj" />
   </ItemGroup>

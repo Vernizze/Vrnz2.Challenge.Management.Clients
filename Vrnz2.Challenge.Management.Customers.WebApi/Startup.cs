@@ -1,4 +1,4 @@
-using FluentValidation;
+using AutoMapper;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -13,9 +13,10 @@ using Vrnz2.Challenge.Management.Customers.Infra.Configs;
 using Vrnz2.Challenge.Management.Customers.Infra.Factories;
 using Vrnz2.Challenge.Management.Customers.Shared.Settings;
 using Vrnz2.Challenge.Management.Customers.Shared.Validations;
+using GetCustomer = Vrnz2.Challenge.Management.Customers.UseCases.GetCustomer;
 using Vrnz2.Challenge.ServiceContracts.Settings;
-using Vrnz2.Challenge.ServiceContracts.UseCases.Models;
 using Vrnz2.Infra.Crosscutting.Utils;
+using Vrnz2.Challenge.Management.Customers.Shared.Queues;
 
 namespace Vrnz2.Challenge.Management.Customers.WebApi
 {
@@ -48,21 +49,20 @@ namespace Vrnz2.Challenge.Management.Customers.WebApi
         {
             services
                 .AddControllers()
-                .ConfigureApiBehaviorOptions(options =>
-                {
-                    options.SuppressModelStateInvalidFilter = true;
-                })
+                .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true)
                 .AddFluentValidation();
 
             services
                 .AddSettings(out AppSettings appSettings)
                 .AddLogsServiceExtensions()
+                .AddAutoMapper(AssembliesFactory.GetAssemblies())
                 //.AddConsumers(appSettings)
-                .AddMediatR(AssembliesFactory.GetAssemblies<Startup>())
+                .AddMediatR(AssembliesFactory.GetAssemblies<ValidationHelper>())
                 .AddIServiceColletion()
-                .AddScoped<IValidatorFactory, ValidatorFactory>()
-                .AddScoped<ValidationHelper>()
-                .AddTransient<IValidator<CreateCustomerModel.Request>, CreateCustomerModel.RequestValidator>()
+                .AddValidations()
+                .AddScoped<QueueHandler>()
+                .AddScoped<ControllerHelper>()
+                .AddTransient<GetCustomer.GetCustomer>()
                 .AddSwaggerGen(c => 
                 {
                     c.SwaggerDoc(SWAGGER_VERSION, new OpenApiInfo { Title = SWAGGER_TITLE, Version = SWAGGER_VERSION });

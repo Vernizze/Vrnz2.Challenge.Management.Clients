@@ -13,6 +13,7 @@ namespace Vrnz2.Challenge.Management.Customers.Infra.Configs
                 .AddSettings<AppSettings>()
                 .AddSettings<ConnectionStringsSettings>("ConnectionStrings")
                 .AddSettings<AwsSettings>("AwsSettings")
+                .AddSettings<QueuesSettings>("QueuesSettings")
                 .BuildServiceProvider()
                 .GetService<IOptions<AppSettings>>().Value;
 
