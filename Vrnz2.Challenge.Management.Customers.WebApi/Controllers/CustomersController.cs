@@ -19,11 +19,17 @@ namespace Vrnz2.Challenge.Management.Customers.WebApi.Controllers
 
         #endregion
 
+        #region Constructors
+
         public CustomersController(ValidationHelper validationHelper, IMediator mediator)
         {
             _validationHelper = validationHelper; 
             _mediator = mediator;
         }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// [POST] Creation Customer end point
@@ -34,6 +40,8 @@ namespace Vrnz2.Challenge.Management.Customers.WebApi.Controllers
         [ProducesResponseType(typeof(CreateCustomerModel.Response), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> Post(CreateCustomerModel.Request request) 
-            => ControllerHelper.Return(_validationHelper, (request) => _mediator.Send(request).Result, request);
+            => await ControllerHelper.ReturnAsync(_validationHelper, (request) => _mediator.Send(request), request);
+
+        #endregion
     }
 }
