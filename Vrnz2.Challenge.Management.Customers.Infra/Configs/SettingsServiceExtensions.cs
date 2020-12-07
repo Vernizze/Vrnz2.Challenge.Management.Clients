@@ -1,0 +1,22 @@
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Vrnz2.Challenge.Management.Customers.Shared.Settings;
+using Vrnz2.Challenge.ServiceContracts.Settings;
+
+namespace Vrnz2.Challenge.Management.Customers.Infra.Configs
+{
+    public static class SettingsServiceExtensions
+    {
+        public static IServiceCollection AddSettings(this IServiceCollection services, out AppSettings appSettings)
+        {
+            appSettings = services
+                .AddSettings<AppSettings>()
+                .AddSettings<ConnectionStringsSettings>("ConnectionStrings")
+                .AddSettings<AwsSettings>("AwsSettings")
+                .BuildServiceProvider()
+                .GetService<IOptions<AppSettings>>().Value;
+
+            return services;
+        }
+    }
+}

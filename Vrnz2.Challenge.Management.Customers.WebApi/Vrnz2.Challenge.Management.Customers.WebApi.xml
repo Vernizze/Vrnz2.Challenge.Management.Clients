@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vrnz2.Challenge.Management.Customers.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:Vrnz2.Challenge.Management.Customers.WebApi.Controllers.CustomersController.Post(Vrnz2.Challenge.ServiceContracts.UseCases.Models.CreateCustomerModel.Request)">
+            <summary>
+            [POST] Creation Customer end point
+            </summary>
+            <param name="request">Name, Cpf and State</param>
+            <returns>Http Status Code 'OK'</returns>
+        </member>
+        <member name="M:Vrnz2.Challenge.Management.Customers.WebApi.Controllers.PingController.Ping">
+            <summary>
+            Service Heart Beat end point
+            </summary>
+            <returns>DateTime.UtcNow + Service Name</returns>
+        </member>
+    </members>
+</doc>
