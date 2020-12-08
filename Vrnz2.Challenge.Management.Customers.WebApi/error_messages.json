@@ -13,6 +13,10 @@
         },
         {
           "Code": "CREATE_CUSTOMER_00003",
+          "Message": "CPF já existente na base!"
+        },
+        {
+          "Code": "CREATE_CUSTOMER_00004",
           "Message": "UF do Cliente Inválido!"
         }
       ]
@@ -30,6 +34,10 @@
         },
         {
           "Code": "CREATE_CUSTOMER_00003",
+          "Message": "Customer Individual TaxPayer Registr (ITR) already exists in database!"
+        },
+        {
+          "Code": "CREATE_CUSTOMER_00004",
           "Message": "Invalid Customer Residence State!"
         }
       ]

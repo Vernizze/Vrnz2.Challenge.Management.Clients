@@ -8,6 +8,7 @@ using Vrnz2.Challenge.Management.Customers.Shared.Entities;
 using Vrnz2.Challenge.Management.Customers.Shared.Settings;
 using Vrnz2.Challenge.ServiceContracts.UseCases.Models;
 using Vrnz2.Infra.Crosscutting.Extensions;
+using Vrnz2.Infra.Crosscutting.Types;
 
 namespace Vrnz2.Challenge.Management.Customers.UseCases.GetCustomer
 {
@@ -57,7 +58,7 @@ namespace Vrnz2.Challenge.Management.Customers.UseCases.GetCustomer
 
         public bool IsNew(string cpf)
         {
-            var customer = Handle(new GetCustomerModel.Request { Cpf = cpf }, new CancellationToken()).Result;
+            var customer = Handle(new GetCustomerModel.Request { Cpf = new Cpf(cpf).Value }, new CancellationToken()).Result;
 
             return customer.IsNull();
         }
