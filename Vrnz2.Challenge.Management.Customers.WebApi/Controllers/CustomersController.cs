@@ -40,7 +40,7 @@ namespace Vrnz2.Challenge.Management.Customers.WebApi.Controllers
         /// [POST] Creation Customer end point
         /// </summary>
         /// <param name="request">Name, Cpf and State</param>
-        /// <returns>Http Status Code 'OK'</returns>
+        /// <returns>Http Status Code 'OK' with content => Success (True/False), Message and UniqueId of Customer</returns>
         [HttpPost]
         [ProducesResponseType(typeof(CreateCustomerModel.Response), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]

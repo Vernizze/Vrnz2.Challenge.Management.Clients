@@ -1,11 +1,6 @@
-﻿using Amazon;
-using AutoMapper;
-using MassTransit.AmazonSqsTransport;
-using MassTransit.AmazonSqsTransport.Transport;
-using MassTransit.Transports;
+﻿using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Options;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Vrnz2.Challenge.Management.Customers.Shared.Entities;
@@ -67,28 +62,5 @@ namespace Vrnz2.Challenge.Management.Customers.UseCases.CreateCustomer
         }
 
         #endregion
-    }
-
-    
-
-    public class SqsSettings
-        : AmazonSqsHostSettings
-    {
-        public RegionEndpoint Region { get; set; }
-
-        public string AccessKey { get; set; }
-
-        public string SecretKey { get; set; }
-
-        public AllowTransportHeader AllowTransportHeader { get; set; }
-
-        public bool ScopeTopics { get; set; }
-
-        public Uri HostAddress  { get; set; }
-
-        public IConnection CreateConnection()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
