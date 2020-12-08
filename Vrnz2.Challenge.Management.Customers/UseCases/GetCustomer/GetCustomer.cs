@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using Vrnz2.Challenge.Management.Customers.Shared.Entities;
 using Vrnz2.Challenge.Management.Customers.Shared.Settings;
 using Vrnz2.Challenge.ServiceContracts.UseCases.Models;
-using Vrnz2.Infra.Crosscutting.Extensions;
-using Vrnz2.Infra.Crosscutting.Types;
+using Vrnz2.Infra.CrossCutting.Extensions;
+using Vrnz2.Infra.CrossCutting.Types;
 
 namespace Vrnz2.Challenge.Management.Customers.UseCases.GetCustomer
 {

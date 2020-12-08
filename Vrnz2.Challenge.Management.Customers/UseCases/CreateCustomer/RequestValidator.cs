@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using Vrnz2.Challenge.ServiceContracts.ErrorMessageCodes;
 using Vrnz2.Challenge.ServiceContracts.UseCases.Models;
-using Vrnz2.Infra.Crosscutting.Types;
+using Vrnz2.Infra.CrossCutting.Types;
 using Get = Vrnz2.Challenge.Management.Customers.UseCases.GetCustomer;
 
 namespace Vrnz2.Challenge.Management.Customers.UseCases.CreateCustomer
@@ -21,7 +21,7 @@ namespace Vrnz2.Challenge.Management.Customers.UseCases.CreateCustomer
 
             RuleFor(v => v.Cpf)
                 .Must(getCustomer.IsNew)
-                .WithMessage(ErrorMessageCodesFactory.INVALID_ITR_ERROR);
+                .WithMessage(ErrorMessageCodesFactory.ITR_ALREADY_EXISTS_ERROR);
 
             RuleFor(v => v.State)
                 .NotEmpty()

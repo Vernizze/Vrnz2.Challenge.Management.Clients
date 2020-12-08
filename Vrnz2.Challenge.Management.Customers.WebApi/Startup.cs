@@ -14,7 +14,7 @@ using Vrnz2.Challenge.Management.Customers.Infra.Factories;
 using Vrnz2.Challenge.Management.Customers.Shared.Settings;
 using Vrnz2.Challenge.Management.Customers.Shared.Validations;
 using GetCustomer = Vrnz2.Challenge.Management.Customers.UseCases.GetCustomer;
-using Vrnz2.Infra.Crosscutting.Utils;
+using Vrnz2.Infra.CrossCutting.Utils;
 using Vrnz2.Challenge.Management.Customers.Shared.Queues;
 
 namespace Vrnz2.Challenge.Management.Customers.WebApi
