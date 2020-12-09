@@ -2,9 +2,9 @@
 
 => API de Manutenção de Clientes (Swagger => /swagger/index.html)
 
--[POST]  => /api/customers
+-[POST]  => /api/customers - Cadastra Clientes
 
--[GET]   => /api/customers
+-[GET]   => /api/customers = Obtém Clientes cadastrados
 
 => Persiste na Collection 'Challenge\Customer'
 
