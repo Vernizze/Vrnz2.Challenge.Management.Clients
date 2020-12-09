@@ -3,6 +3,7 @@
 => API de Manutenção de Clientes (Swagger => /swagger/index.html)
 
 -[POST]  => /api/customers
+
 -[GET]   => /api/customers
 
 => Persiste na Collection 'Challenge\Customer'
