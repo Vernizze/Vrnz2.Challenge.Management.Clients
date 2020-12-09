@@ -55,7 +55,6 @@ namespace Vrnz2.Challenge.Management.Customers.WebApi
                 .AddSettings(out AppSettings appSettings)
                 .AddLogsServiceExtensions()
                 .AddAutoMapper(AssembliesFactory.GetAssemblies())
-                //.AddConsumers(appSettings)
                 .AddMediatR(AssembliesFactory.GetAssemblies<ValidationHelper>())
                 .AddIServiceColletion()
                 .AddValidations()
