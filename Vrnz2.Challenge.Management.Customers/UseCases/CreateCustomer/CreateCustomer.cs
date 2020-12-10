@@ -48,10 +48,9 @@ namespace Vrnz2.Challenge.Management.Customers.UseCases.CreateCustomer
         {
             var customer = _mapper.Map<Customer>(request);
 
-            using (var mongo = new Data.MongoDB.MongoDB(_connectionStringsSettings.MongoDbChallenge, MONGODB_COLLECTION, MONGODB_DATABASE))
-                await mongo.Add(customer);
+            await SendToMongo(customer);
             
-            await _queueHandler.Send(_mapper.Map<CustomerNotification.Created>(request), _queuesSettings.CustomerCreatedQueueName);
+            await SendToQueue(_mapper.Map<CustomerNotification.Created>(request));
 
             return new CreateCustomerModel.Response
             {
@@ -60,6 +59,15 @@ namespace Vrnz2.Challenge.Management.Customers.UseCases.CreateCustomer
                 ClientUniqueId = customer.UniqueId
             };
         }
+
+        public virtual async Task SendToMongo(Customer customer) 
+        {
+            using (var mongo = new Data.MongoDB.MongoDB(_connectionStringsSettings.MongoDbChallenge, MONGODB_COLLECTION, MONGODB_DATABASE))
+                await mongo.Add(customer);
+        }
+
+        public virtual async Task SendToQueue(CustomerNotification.Created notification) 
+            => await _queueHandler.Send(notification, _queuesSettings.CustomerCreatedQueueName);
 
         #endregion
     }

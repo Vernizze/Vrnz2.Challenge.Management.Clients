@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vrnz2.Challenge.Management.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vrnz2.Challenge.Management.Customers.WebApi", "Vrnz2.Challenge.Management.Customers.WebApi\Vrnz2.Challenge.Management.Customers.WebApi.csproj", "{4F4F3A31-53DF-4BC0-836E-379770B8BF9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vrnz2.Challenge.Management.Customers.Tests", "Vrnz2.Challenge.Management.Customers.Tests\Vrnz2.Challenge.Management.Customers.Tests.csproj", "{5011CA2B-7A11-4D8E-8C3B-1BD964322EE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4F4F3A31-53DF-4BC0-836E-379770B8BF9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F4F3A31-53DF-4BC0-836E-379770B8BF9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F4F3A31-53DF-4BC0-836E-379770B8BF9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5011CA2B-7A11-4D8E-8C3B-1BD964322EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5011CA2B-7A11-4D8E-8C3B-1BD964322EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5011CA2B-7A11-4D8E-8C3B-1BD964322EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5011CA2B-7A11-4D8E-8C3B-1BD964322EE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -43,17 +43,24 @@ namespace Vrnz2.Challenge.Management.Customers.UseCases.GetCustomer
 
         public async Task<GetCustomerModel.Response> Handle(GetCustomerModel.Request request, CancellationToken cancellationToken)
         {
-            Customer customer = null;
+            var customer = await GetData(request);
+
+            return _mapper.Map<GetCustomerModel.Response>(customer);
+        }
+
+        public virtual async Task<Customer> GetData(GetCustomerModel.Request request)
+        {
+            Customer result = null;
 
             using (var mongo = new Data.MongoDB.MongoDB(_connectionStringsSettings.MongoDbChallenge, MONGODB_COLLECTION, MONGODB_DATABASE))
             {
                 var found = await mongo.GetMany<Customer>(c => c.Cpf.Equals(request.Cpf));
 
                 if (found.HaveAny())
-                    customer = found.Single();
+                    result = found.Single();
             }
 
-            return _mapper.Map<GetCustomerModel.Response>(customer);
+            return result;
         }
 
         public bool IsNew(string cpf)
