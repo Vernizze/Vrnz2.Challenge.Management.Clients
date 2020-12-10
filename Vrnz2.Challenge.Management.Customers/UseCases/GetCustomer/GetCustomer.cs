@@ -54,7 +54,7 @@ namespace Vrnz2.Challenge.Management.Customers.UseCases.GetCustomer
 
             using (var mongo = new Data.MongoDB.MongoDB(_connectionStringsSettings.MongoDbChallenge, MONGODB_COLLECTION, MONGODB_DATABASE))
             {
-                var found = await mongo.GetMany<Customer>(c => c.Cpf.Equals(request.Cpf));
+                var found = await mongo.GetMany<Customer>(c => c.Cpf.Equals(new Cpf(request.Cpf).Value));
 
                 if (found.HaveAny())
                     result = found.Single();
