@@ -48,7 +48,7 @@ namespace Vrnz2.Challenge.Management.Customers.Tests.UseCases.GetCustomer
             => new GetCustomerMock(_connectionStringsOptions, _mapper);
 
         [Fact]
-        public async Task CreatePayment_Handler_Test()
+        public async Task GetCustomer_Handler_Test()
         {
             //Arrange
             var uniqueId = new Guid("ef01bedb-2d4c-418e-ac52-1e8a10b9b2a8");
